@@ -7,6 +7,8 @@ target 'ToDoMoviles' do
 
   # Pods for ToDoMoviles
   pod 'FirebaseAuth'
+  pod 'FirebaseStorage'
+  pod 'FirebaseDatabase'
+  pod 'SDWebImage'
   
-
 end
