@@ -8,6 +8,7 @@
 import UIKit
 import FirebaseCore
 import FirebaseDatabase
+import FirebaseAuth
 
 class ToDoTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
