@@ -10,5 +10,5 @@ import Foundation
 class Tarea{
     var titulo:String = ""
     var contenido:String = ""
-    var fecha:Date = ""
+    var fecha:String = ""
 }

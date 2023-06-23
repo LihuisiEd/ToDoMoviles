@@ -20,13 +20,13 @@ class ToDoTableViewController: UIViewController, UITableViewDelegate, UITableVie
         tablaTareas.delegate = self
         tablaTareas.delegate = self
         
-        Database.database().reference().child("tareas").observe(DataEventType.childAdded, with: {
+        Database.database().reference().child("usuarios").child("tareas").observe(DataEventType.childAdded, with: {
             (tarea) in
-            let ta = Tarea()
-            ta.titulo = (tarea.value as! NSDictionary)["titulo"] as! String
-            ta.contenido = (tarea.value as! NSDictionary)["contenido"] as! String
-            ta.fecha = (tarea.value as! NSDictionary)["fecha"] as! Date
-            self.tareas.append(ta)
+            let t = Tarea()
+            t.titulo = (tarea.value as! NSDictionary)["titulo"] as! String
+            t.fecha = (tarea.value as! NSDictionary)["fecha"] as! String
+            t.contenido = (tarea.value as! NSDictionary)["contenido"] as! String
+            self.tareas.append(t)
             self.tablaTareas.reloadData()
         })
     }
