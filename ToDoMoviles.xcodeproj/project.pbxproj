@@ -15,6 +15,9 @@
 		101E5B862A3B6D5900208EC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 101E5B842A3B6D5900208EC8 /* LaunchScreen.storyboard */; };
 		101E5B8E2A3B6E2900208EC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 101E5B8D2A3B6E2900208EC8 /* GoogleService-Info.plist */; };
 		16B0A9AB70C68CB504F01721 /* Pods_ToDoMoviles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7D6D42C0AE354E31E05670 /* Pods_ToDoMoviles.framework */; };
+		E0241AC12A4627B800445308 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0241AC02A4627B800445308 /* Usuario.swift */; };
+		E0880CB82A45FDCA0071F6C9 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0880CB72A45FDC90071F6C9 /* ToDoTableViewController.swift */; };
+		E0880CBC2A4605880071F6C9 /* Tarea.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0880CBB2A4605880071F6C9 /* Tarea.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +33,9 @@
 		101E5B8D2A3B6E2900208EC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1B7CE15361CDF0384597E3D7 /* Pods-ToDoMoviles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoMoviles.debug.xcconfig"; path = "Target Support Files/Pods-ToDoMoviles/Pods-ToDoMoviles.debug.xcconfig"; sourceTree = "<group>"; };
 		CF53E3F230A6096D5169AD77 /* Pods-ToDoMoviles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoMoviles.release.xcconfig"; path = "Target Support Files/Pods-ToDoMoviles/Pods-ToDoMoviles.release.xcconfig"; sourceTree = "<group>"; };
+		E0241AC02A4627B800445308 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
+		E0880CB72A45FDC90071F6C9 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
+		E0880CBB2A4605880071F6C9 /* Tarea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tarea.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,10 +71,11 @@
 		101E5B782A3B6D5800208EC8 /* ToDoMoviles */ = {
 			isa = PBXGroup;
 			children = (
+				E0880CBA2A46056C0071F6C9 /* Controladores */,
+				E0880CB92A4605620071F6C9 /* Modelos */,
 				101E5B8D2A3B6E2900208EC8 /* GoogleService-Info.plist */,
 				101E5B792A3B6D5800208EC8 /* AppDelegate.swift */,
 				101E5B7B2A3B6D5800208EC8 /* SceneDelegate.swift */,
-				101E5B7D2A3B6D5800208EC8 /* ViewController.swift */,
 				101E5B7F2A3B6D5800208EC8 /* Main.storyboard */,
 				101E5B822A3B6D5900208EC8 /* Assets.xcassets */,
 				101E5B842A3B6D5900208EC8 /* LaunchScreen.storyboard */,
@@ -83,8 +90,25 @@
 				1B7CE15361CDF0384597E3D7 /* Pods-ToDoMoviles.debug.xcconfig */,
 				CF53E3F230A6096D5169AD77 /* Pods-ToDoMoviles.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		E0880CB92A4605620071F6C9 /* Modelos */ = {
+			isa = PBXGroup;
+			children = (
+				E0880CBB2A4605880071F6C9 /* Tarea.swift */,
+				E0241AC02A4627B800445308 /* Usuario.swift */,
+			);
+			path = Modelos;
+			sourceTree = "<group>";
+		};
+		E0880CBA2A46056C0071F6C9 /* Controladores */ = {
+			isa = PBXGroup;
+			children = (
+				E0880CB72A45FDC90071F6C9 /* ToDoTableViewController.swift */,
+				101E5B7D2A3B6D5800208EC8 /* ViewController.swift */,
+			);
+			path = Controladores;
 			sourceTree = "<group>";
 		};
 		EA087AC70F019FC6D17FCD56 /* Frameworks */ = {
@@ -212,8 +236,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				101E5B7E2A3B6D5800208EC8 /* ViewController.swift in Sources */,
+				E0880CB82A45FDCA0071F6C9 /* ToDoTableViewController.swift in Sources */,
+				E0241AC12A4627B800445308 /* Usuario.swift in Sources */,
 				101E5B7A2A3B6D5800208EC8 /* AppDelegate.swift in Sources */,
 				101E5B7C2A3B6D5800208EC8 /* SceneDelegate.swift in Sources */,
+				E0880CBC2A4605880071F6C9 /* Tarea.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -343,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -359,8 +386,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UXURQ4S5Q3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoMoviles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -375,6 +404,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiwivon.ToDoMoviles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -387,8 +417,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = UXURQ4S5Q3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ToDoMoviles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -403,6 +435,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.kiwivon.ToDoMoviles;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
