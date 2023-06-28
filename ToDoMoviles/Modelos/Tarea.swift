@@ -11,4 +11,5 @@ class Tarea{
     var titulo:String = ""
     var contenido:String = ""
     var fecha:String = ""
+    var id:String = ""
 }
