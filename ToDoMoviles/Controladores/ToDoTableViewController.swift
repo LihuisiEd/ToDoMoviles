@@ -77,6 +77,18 @@ class ToDoTableViewController: UIViewController, UITableViewDelegate, UITableVie
         } 
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let tareaPut = tareas[indexPath.row]
+        performSegue(withIdentifier: "putSegue", sender: tareaPut)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
+        if segue.identifier == "putSegue"{
+            let siguienteVC = segue.destination as! CreateTaskViewController
+            siguienteVC.tareaPut = sender as? Tarea
+        }
+    }
+    
     override func setEditing(_ editing: Bool, animated: Bool) {
         super.setEditing(editing, animated: animated)
         if (self.isEditing){

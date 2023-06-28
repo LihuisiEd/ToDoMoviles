@@ -95,6 +95,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tablaTareas" destination="TMM-K9-EKD" id="YW8-bA-bqw"/>
+                        <segue destination="hTu-DC-5an" kind="show" identifier="putSegue" id="Ao0-3C-h0m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFS-nc-TWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -169,7 +170,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain"/>
                                 <connections>
-                                    <segue destination="hTu-DC-5an" kind="show" id="eTj-JR-GbZ"/>
+                                    <segue destination="hTu-DC-5an" kind="show" identifier="postSegue" id="eTj-JR-GbZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -213,6 +214,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPCION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jni-tK-k8P">
+                                <rect key="frame" x="152" y="363" width="110" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sVB-hR-hBH">
                                 <rect key="frame" x="57" y="292" width="300" height="34"/>
                                 <constraints>
@@ -237,16 +244,25 @@
                                     <action selector="agregarTarea:" destination="hTu-DC-5an" eventType="touchUpInside" id="xBX-99-ECE"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DESCRIPCION" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jni-tK-k8P">
-                                <rect key="frame" x="152" y="363" width="110" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CvY-WH-fv0">
+                                <rect key="frame" x="128.5" y="718" width="157" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="ACTUALIZAR TAREA">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="agregarTarea:" destination="hTu-DC-5an" eventType="touchUpInside" id="V15-2f-OM3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eWs-qp-bTJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="CvY-WH-fv0" firstAttribute="top" secondItem="C24-us-Hdv" secondAttribute="bottom" constant="-1" id="56g-2C-WTC"/>
+                            <constraint firstItem="CvY-WH-fv0" firstAttribute="centerX" secondItem="lHF-bv-dgD" secondAttribute="centerX" id="C6M-Ii-65U"/>
                             <constraint firstItem="sVB-hR-hBH" firstAttribute="centerX" secondItem="lHF-bv-dgD" secondAttribute="centerX" id="EhS-0i-7O6"/>
                             <constraint firstItem="42t-7C-Fh7" firstAttribute="centerX" secondItem="lHF-bv-dgD" secondAttribute="centerX" id="HdK-U1-hzi"/>
                             <constraint firstItem="42t-7C-Fh7" firstAttribute="top" secondItem="eWs-qp-bTJ" secondAttribute="top" constant="75" id="JF9-2t-MGi"/>
@@ -266,6 +282,7 @@
                     <navigationItem key="navigationItem" id="TfE-TK-ZQw"/>
                     <connections>
                         <outlet property="btbAgregar" destination="C24-us-Hdv" id="bPx-hT-5RN"/>
+                        <outlet property="btnActualizar" destination="CvY-WH-fv0" id="zRl-NJ-lAU"/>
                         <outlet property="txtContenido" destination="sVB-hR-hBH" id="Fid-Jo-l1S"/>
                         <outlet property="txtFecha" destination="MNc-UP-Rff" id="7hA-kx-GuC"/>
                         <outlet property="txtTitulo" destination="mhg-c8-75x" id="yb3-BQ-m4N"/>
@@ -326,6 +343,9 @@
             <point key="canvasLocation" x="2913.04347826087" y="114.50892857142857"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ao0-3C-h0m"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.macro" catalog="system" width="128" height="113"/>
         <image name="music.mic" catalog="system" width="128" height="121"/>
