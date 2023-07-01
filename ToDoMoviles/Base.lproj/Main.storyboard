@@ -11,7 +11,6 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ToDoMoviles" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -55,7 +54,7 @@
                                 <buttonConfiguration key="configuration" style="plain" title="¿No tienes una cuenta?"/>
                                 <connections>
                                     <action selector="btnRegister:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kbF-Hk-BtM"/>
-                                    <segue destination="6HK-yl-7SG" kind="show" id="wLY-et-wdr"/>
+                                    <segue destination="6HK-yl-7SG" kind="show" identifier="registroSegue" id="wLY-et-wdr"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -85,8 +84,10 @@
                     <connections>
                         <outlet property="txtEmail" destination="hWX-eJ-sS4" id="PX0-ym-3wb"/>
                         <outlet property="txtPassword" destination="NpY-Bd-sKr" id="Kr5-d4-Th8"/>
+                        <segue destination="GzE-Fe-Nml" kind="show" identifier="iniciarsesionSegue" id="5Mp-J5-HMR"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1213" y="115"/>
         </scene>
@@ -122,7 +123,6 @@
                                 <connections>
                                     <action selector="btnRegister:" destination="6HK-yl-7SG" eventType="touchUpInside" id="VK0-al-HAx"/>
                                     <action selector="btnRegister:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ZOT-2w-zVr"/>
-                                    <segue destination="GzE-Fe-Nml" kind="show" id="Qgf-zl-sel"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo electrónico" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4OV-Ag-yRP">
@@ -160,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CH3-qs-xha" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1935" y="115"/>
+            <point key="canvasLocation" x="1212" y="832"/>
         </scene>
         <!--Notas-->
         <scene sceneID="Y9R-15-ijU">
