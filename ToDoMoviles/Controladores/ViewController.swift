@@ -33,7 +33,9 @@ class ViewController: UIViewController {
             }
         }
     }
+    
     @IBAction func btnRegister(_ sender: Any) {
+        self.performSegue(withIdentifier: "registroSegue", sender: nil)
     }
     
     override func viewDidLoad() {
