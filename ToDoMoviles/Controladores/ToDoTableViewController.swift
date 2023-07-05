@@ -25,19 +25,18 @@ class ToDoTableViewController: UIViewController, UITableViewDelegate, UITableVie
         setEditing(true, animated: true)
         
         
-        
-        Database.database().reference().child("usuarios").child("1").child("tareas").observe(DataEventType.childAdded, with: {
-            (tarea) in
-            print(tarea)
-            let t = Tarea()
-            t.titulo = (tarea.value as! NSDictionary)["titulo"] as! String
-            t.fecha = (tarea.value as! NSDictionary)["fecha"] as! String
-            t.contenido = (tarea.value as! NSDictionary)["contenido"] as! String
-            t.id = tarea.key
-            print(t)
-            self.tareas.append(t)
-            self.tablaTareas.reloadData()
-        })
+        // child((Auth.auth().currentUser?.uid)!)
+        Database.database().reference().child("usuarios").child("1").child("tareas").observe(DataEventType.childAdded, with: { (snapshot) in
+                    if let tareaDict = snapshot.value as? [String: Any] {
+                        let tarea = Tarea()
+                        tarea.titulo = tareaDict["titulo"] as? String ?? ""
+                        tarea.fecha = tareaDict["fecha"] as? String ?? ""
+                        tarea.contenido = tareaDict["contenido"] as? String ?? ""
+                        tarea.id = snapshot.key
+                        self.tareas.append(tarea)
+                        self.tablaTareas.reloadData()
+                    }
+                })
     }
     
     func deleteItem(id: String){

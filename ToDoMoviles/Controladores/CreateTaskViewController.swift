@@ -21,25 +21,28 @@ class CreateTaskViewController: UIViewController {
     @IBOutlet weak var txtContenido: UITextField!
     @IBOutlet weak var txtTitulo: UITextField!
     
+    let database = Database.database().reference()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if tareaPut == nil{
             btbAgregar.isEnabled = true
             btnActualizar.isEnabled = false
+            btnActualizar.isHidden = true
         } else {
             btnActualizar.isEnabled = true
             btbAgregar.isEnabled = false
+            btbAgregar.isHidden = true
             txtTitulo.text = tareaPut!.titulo
             txtContenido.text = tareaPut!.contenido
             txtFecha.date = convertStringtoDate(date: tareaPut!.fecha)
         }
     }
     
-    func convertDatetoString(date:Date) -> String {
+    func convertDatetoString(date:UIDatePicker) -> String {
         let dateFormater = DateFormatter()
         dateFormater.dateFormat = "dd-mm-yyyy HH:mm:ss"
-        return dateFormater.string(from: date)
+        return dateFormater.string(from: date.date)
     }
     
     func convertStringtoDate(date:String) -> Date {
@@ -52,18 +55,30 @@ class CreateTaskViewController: UIViewController {
     }
 
     @IBAction func agregarTarea(_ sender: Any) {
-        let ref = Database.database().reference().child("usuarios").child("1").child("tareas")
-        tareaPut?.titulo = txtTitulo.text!
-        tareaPut?.contenido = txtContenido.text!
-        tareaPut?.fecha = convertDatetoString(date: txtFecha.date)
-        ref.setValue(tareaPut) { error, _ in
-            if let error = error {
-                print("Error al agregar los datos: \(error.localizedDescription)")
-            } else {
-                print("OK")
-            }
+        do {
+            let selectedDate = self.txtFecha.date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-mm-yyyy HH:mm:ss"
+            let dateString = dateFormatter.string(from: selectedDate)
+            let tareaData: [String: Any] = [
+                "titulo": self.txtTitulo ?? "",
+                "contenido": self.txtContenido ?? "",
+                "fecha": dateString
+            ]
+            
+            let tareaRef = self.database.child("tareas").childByAutoId()
+            tareaRef.setValue(tareaData)
+            
+            self.navigationController?.popViewController(animated: true)
+        } catch {
+            print(error.localizedDescription)
         }
     }
-
+    
+    
+    @IBAction func putTarea(_ sender: Any) {
+        
+    }
+    
 
 }
