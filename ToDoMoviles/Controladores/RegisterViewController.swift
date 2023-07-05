@@ -20,10 +20,10 @@ class RegisterViewController: UIViewController {
         Auth.auth().createUser(withEmail: self.txtEmail.text!, password: self.txtPassword.text!, completion: {(user, error) in
             print("Intentando crear un usuario")
             if error != nil{
-                print("Se presentó un error")
+                print("Se presentó un error \(error)")
             }else{
                 print("El usuario fue creado exitosamente")
-                Database.database().reference().child("usuarios").child("email").setValue(user!.user.email)
+                Database.database().reference().child("usuarios").child(user!.user.uid).child("email").setValue(user!.user.email)
                 
                 let alerta = UIAlertController(title: "Creación de Usuario", message: "Usuario \(self.txtUsername.text!) se creó correctamente", preferredStyle: .alert)
                 let btnOK = UIAlertAction(title: "Aceptar", style: .default) { (UIAlertAction) in
