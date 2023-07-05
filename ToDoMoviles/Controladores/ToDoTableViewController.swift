@@ -24,8 +24,6 @@ class ToDoTableViewController: UIViewController, UITableViewDelegate, UITableVie
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         setEditing(true, animated: true)
         
-        
-        
         Database.database().reference().child("usuarios").child("1").child("tareas").observe(DataEventType.childAdded, with: {
             (tarea) in
             print(tarea)

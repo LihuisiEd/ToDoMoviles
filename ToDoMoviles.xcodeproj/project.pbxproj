@@ -13,9 +13,9 @@
 		101E5B812A3B6D5800208EC8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 101E5B7F2A3B6D5800208EC8 /* Main.storyboard */; };
 		101E5B832A3B6D5900208EC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 101E5B822A3B6D5900208EC8 /* Assets.xcassets */; };
 		101E5B862A3B6D5900208EC8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 101E5B842A3B6D5900208EC8 /* LaunchScreen.storyboard */; };
-		101E5B8E2A3B6E2900208EC8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 101E5B8D2A3B6E2900208EC8 /* GoogleService-Info.plist */; };
 		102BAB652A4CB5090036B45D /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 102BAB642A4CB5090036B45D /* RegisterViewController.swift */; };
 		16B0A9AB70C68CB504F01721 /* Pods_ToDoMoviles.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E7D6D42C0AE354E31E05670 /* Pods_ToDoMoviles.framework */; };
+		386399942A55D64400860EB9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 386399932A55D64400860EB9 /* GoogleService-Info.plist */; };
 		58A4890F2A4C84E900DB0EC9 /* CreateTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A4890E2A4C84E900DB0EC9 /* CreateTaskViewController.swift */; };
 		58A489112A4C8B6900DB0EC9 /* CustomCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58A489102A4C8B6900DB0EC9 /* CustomCellTableViewCell.swift */; };
 		E0241AC12A4627B800445308 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0241AC02A4627B800445308 /* Usuario.swift */; };
@@ -33,9 +33,9 @@
 		101E5B822A3B6D5900208EC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		101E5B852A3B6D5900208EC8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		101E5B872A3B6D5900208EC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		101E5B8D2A3B6E2900208EC8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		102BAB642A4CB5090036B45D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1B7CE15361CDF0384597E3D7 /* Pods-ToDoMoviles.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoMoviles.debug.xcconfig"; path = "Target Support Files/Pods-ToDoMoviles/Pods-ToDoMoviles.debug.xcconfig"; sourceTree = "<group>"; };
+		386399932A55D64400860EB9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		58A4890E2A4C84E900DB0EC9 /* CreateTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTaskViewController.swift; sourceTree = "<group>"; };
 		58A489102A4C8B6900DB0EC9 /* CustomCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCellTableViewCell.swift; sourceTree = "<group>"; };
 		CF53E3F230A6096D5169AD77 /* Pods-ToDoMoviles.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoMoviles.release.xcconfig"; path = "Target Support Files/Pods-ToDoMoviles/Pods-ToDoMoviles.release.xcconfig"; sourceTree = "<group>"; };
@@ -79,8 +79,8 @@
 			children = (
 				E0880CBA2A46056C0071F6C9 /* Controladores */,
 				E0880CB92A4605620071F6C9 /* Modelos */,
-				101E5B8D2A3B6E2900208EC8 /* GoogleService-Info.plist */,
 				101E5B792A3B6D5800208EC8 /* AppDelegate.swift */,
+				386399932A55D64400860EB9 /* GoogleService-Info.plist */,
 				101E5B7B2A3B6D5800208EC8 /* SceneDelegate.swift */,
 				101E5B7F2A3B6D5800208EC8 /* Main.storyboard */,
 				101E5B822A3B6D5900208EC8 /* Assets.xcassets */,
@@ -189,7 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				101E5B862A3B6D5900208EC8 /* LaunchScreen.storyboard in Resources */,
-				101E5B8E2A3B6E2900208EC8 /* GoogleService-Info.plist in Resources */,
+				386399942A55D64400860EB9 /* GoogleService-Info.plist in Resources */,
 				101E5B832A3B6D5900208EC8 /* Assets.xcassets in Resources */,
 				101E5B812A3B6D5800208EC8 /* Main.storyboard in Resources */,
 			);

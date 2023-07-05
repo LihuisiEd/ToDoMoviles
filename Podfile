@@ -10,5 +10,6 @@ target 'ToDoMoviles' do
   pod 'FirebaseStorage'
   pod 'FirebaseDatabase'
   pod 'SDWebImage'
+  pod 'GoogleSignIn'
   
 end

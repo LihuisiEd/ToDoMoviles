@@ -7,6 +7,9 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
+import GoogleSignIn
+import FirebaseCore
 
 class ViewController: UIViewController {
 
@@ -42,7 +45,37 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
     }
+    
+    @IBAction func btnGoogle(_ sender: Any) {
+        guard let clientID = FirebaseApp.app()?.options.clientID else { return }
 
+        // Create Google Sign In configuration object.
+        let config = GIDConfiguration(clientID: clientID)
+        GIDSignIn.sharedInstance.configuration = config
+
+        // Start the sign in flow!
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [unowned self] result, error in
+          guard error == nil else {
+            return
+          }
+
+          guard let user = result?.user,
+            let idToken = user.idToken?.tokenString
+          else {
+            return
+          }
+
+          let credential = GoogleAuthProvider.credential(withIDToken: idToken,
+                                                         accessToken: user.accessToken.tokenString)
+
+            Auth.auth().signIn(with: credential) { result, error in
+                self.performSegue(withIdentifier: "iniciarsesionSegue", sender: nil)
+            }
+
+        }
+                    
+    }
+    
 
 }
 
