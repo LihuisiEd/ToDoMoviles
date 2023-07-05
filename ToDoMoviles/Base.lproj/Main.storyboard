@@ -257,6 +257,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tablaTareas" destination="TMM-K9-EKD" id="YW8-bA-bqw"/>
+                        <segue destination="hTu-DC-5an" kind="show" identifier="putSegue" id="N5A-Gr-whY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pFS-nc-TWN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -405,6 +406,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XzR-zN-oaA">
+                                <rect key="frame" x="129" y="690" width="157" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="ACTUALIZAR TAREA">
+                                    <backgroundConfiguration key="background">
+                                        <color key="backgroundColor" systemColor="labelColor"/>
+                                    </backgroundConfiguration>
+                                    <color key="baseForegroundColor" systemColor="secondarySystemGroupedBackgroundColor"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="actualizarTarea:" destination="hTu-DC-5an" eventType="touchUpInside" id="8dB-oW-M0f"/>
+                                    <action selector="agregarTarea:" destination="hTu-DC-5an" eventType="touchUpInside" id="oav-VH-CS4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="eWs-qp-bTJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -428,6 +444,7 @@
                     <navigationItem key="navigationItem" id="TfE-TK-ZQw"/>
                     <connections>
                         <outlet property="btbAgregar" destination="C24-us-Hdv" id="bPx-hT-5RN"/>
+                        <outlet property="btnActualizar" destination="XzR-zN-oaA" id="MFM-c9-ZR0"/>
                         <outlet property="txtContenido" destination="sVB-hR-hBH" id="Fid-Jo-l1S"/>
                         <outlet property="txtFecha" destination="MNc-UP-Rff" id="7hA-kx-GuC"/>
                         <outlet property="txtTitulo" destination="mhg-c8-75x" id="yb3-BQ-m4N"/>
@@ -491,6 +508,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="5Mp-J5-HMR"/>
+        <segue reference="N5A-Gr-whY"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.macro" catalog="system" width="128" height="113"/>

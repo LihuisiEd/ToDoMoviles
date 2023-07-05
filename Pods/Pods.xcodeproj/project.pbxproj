@@ -6941,6 +6941,22 @@
 			};
 			name = Debug;
 		};
+		4289635173A0B621B1C26F818257F24D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 863C12857E81A92A5B3D9E8318B67BE5 /* GoogleSignIn.debug.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/GoogleSignIn";
+				IBSC_MODULE = GoogleSignIn;
+				INFOPLIST_FILE = "Target Support Files/GoogleSignIn/ResourceBundle-GoogleSignIn-GoogleSignIn-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = GoogleSignIn;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
 		50823F23346B936C2A848EB0368323D5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ED4FFD1F804C8E5ADE0A4DB94B247275 /* Pods-ToDoMoviles.debug.xcconfig */;
@@ -7487,6 +7503,22 @@
 			};
 			name = Debug;
 		};
+		A4BFF563959A8DA6F9C6780B2668AEFA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4945F8952991074B83665125476ACBED /* GoogleSignIn.release.xcconfig */;
+			buildSettings = {
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/GoogleSignIn";
+				IBSC_MODULE = GoogleSignIn;
+				INFOPLIST_FILE = "Target Support Files/GoogleSignIn/ResourceBundle-GoogleSignIn-GoogleSignIn-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				PRODUCT_NAME = GoogleSignIn;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		A52E63E8E89055C421339168035878BB /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 36E27FF8484FF8FBBFA8975FC11061E8 /* FirebaseAuthInterop.release.xcconfig */;
@@ -7590,23 +7622,6 @@
 			};
 			name = Debug;
 		};
-		B2815F561D475118EE91037CE7880FB6 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4945F8952991074B83665125476ACBED /* GoogleSignIn.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/GoogleSignIn";
-				IBSC_MODULE = GoogleSignIn;
-				INFOPLIST_FILE = "Target Support Files/GoogleSignIn/ResourceBundle-GoogleSignIn-GoogleSignIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				PRODUCT_NAME = GoogleSignIn;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		C26958AE5B10ED7368FE75AE036AF545 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 49861574B738617FE0448460C3D1C307 /* GTMSessionFetcher.release.xcconfig */;
@@ -7674,23 +7689,6 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		C5FC5479C13639B0DFE62C096E91C7E8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 863C12857E81A92A5B3D9E8318B67BE5 /* GoogleSignIn.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/GoogleSignIn";
-				IBSC_MODULE = GoogleSignIn;
-				INFOPLIST_FILE = "Target Support Files/GoogleSignIn/ResourceBundle-GoogleSignIn-GoogleSignIn-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				PRODUCT_NAME = GoogleSignIn;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
 			};
 			name = Debug;
 		};
@@ -8163,8 +8161,8 @@
 		66D6477CEDF3ACED518F94DC9215BB9B /* Build configuration list for PBXNativeTarget "GoogleSignIn-GoogleSignIn" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				C5FC5479C13639B0DFE62C096E91C7E8 /* Debug */,
-				B2815F561D475118EE91037CE7880FB6 /* Release */,
+				4289635173A0B621B1C26F818257F24D /* Debug */,
+				A4BFF563959A8DA6F9C6780B2668AEFA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
