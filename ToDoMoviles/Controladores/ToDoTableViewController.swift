@@ -19,6 +19,7 @@ class ToDoTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         Database.database().reference().child("usuarios").child("1").child("tareas").observe(DataEventType.childAdded, with: { (snapshot) in
             if let tareaDict = snapshot.value as? [String: Any] {
+                print(snapshot)
                 let tarea = Tarea()
                 tarea.titulo = tareaDict["titulo"] as? String ?? ""
                 tarea.fecha = tareaDict["fecha"] as? String ?? ""

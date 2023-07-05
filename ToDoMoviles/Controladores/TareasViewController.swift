@@ -36,7 +36,7 @@ class TareasViewController: UIViewController, UIImagePickerControllerDelegate, U
                             ]
                             
                             // Generamos una nueva referencia en la base de datos y guardamos los datos de la tarea
-                            let tareaRef = self.database.child("tareas").childByAutoId()
+                            let tareaRef = Database.database().reference().child("usuarios").child("1").child("tareas").childByAutoId()
                             tareaRef.setValue(tareaData)
                             
                             print("Tarea guardada exitosamente.")
