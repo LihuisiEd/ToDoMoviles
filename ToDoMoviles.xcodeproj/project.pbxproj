@@ -21,6 +21,7 @@
 		E0241AC12A4627B800445308 /* Usuario.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0241AC02A4627B800445308 /* Usuario.swift */; };
 		E0880CB82A45FDCA0071F6C9 /* ToDoTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0880CB72A45FDC90071F6C9 /* ToDoTableViewController.swift */; };
 		E0880CBC2A4605880071F6C9 /* Tarea.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0880CBB2A4605880071F6C9 /* Tarea.swift */; };
+		F484ACBD2A55B2E2008EA272 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F484ACBC2A55B2E2008EA272 /* AudioViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		E0241AC02A4627B800445308 /* Usuario.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Usuario.swift; sourceTree = "<group>"; };
 		E0880CB72A45FDC90071F6C9 /* ToDoTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoTableViewController.swift; sourceTree = "<group>"; };
 		E0880CBB2A4605880071F6C9 /* Tarea.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tarea.swift; sourceTree = "<group>"; };
+		F484ACBC2A55B2E2008EA272 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 				58A4890E2A4C84E900DB0EC9 /* CreateTaskViewController.swift */,
 				58A489102A4C8B6900DB0EC9 /* CustomCellTableViewCell.swift */,
 				102BAB642A4CB5090036B45D /* RegisterViewController.swift */,
+				F484ACBC2A55B2E2008EA272 /* AudioViewController.swift */,
 			);
 			path = Controladores;
 			sourceTree = "<group>";
@@ -253,6 +256,7 @@
 				E0880CBC2A4605880071F6C9 /* Tarea.swift in Sources */,
 				58A489112A4C8B6900DB0EC9 /* CustomCellTableViewCell.swift in Sources */,
 				58A4890F2A4C84E900DB0EC9 /* CreateTaskViewController.swift in Sources */,
+				F484ACBD2A55B2E2008EA272 /* AudioViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

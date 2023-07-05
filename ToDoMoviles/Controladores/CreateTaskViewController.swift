@@ -14,6 +14,7 @@ class CreateTaskViewController: UIViewController {
 
     
     var tareaPut: Tarea?
+    var audioURL: Tarea?
     
     @IBOutlet weak var btnActualizar: UIButton!
     @IBOutlet weak var btbAgregar: UIButton!

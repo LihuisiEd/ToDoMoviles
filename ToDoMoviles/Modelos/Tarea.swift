@@ -12,4 +12,5 @@ class Tarea{
     var contenido:String = ""
     var fecha:String = ""
     var id:String = ""
+    var audioURL = ""
 }

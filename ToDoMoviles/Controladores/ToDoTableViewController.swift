@@ -13,6 +13,8 @@ import FirebaseAuth
 class ToDoTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tareas:[Tarea] = []
+    var audioURL: URL?
+    var databaseRef: DatabaseReference!
     
     @IBOutlet weak var tablaTareas: UITableView!
     
@@ -25,19 +27,19 @@ class ToDoTableViewController: UIViewController, UITableViewDelegate, UITableVie
         setEditing(true, animated: true)
         
         
-        
-        Database.database().reference().child("usuarios").child("1").child("tareas").observe(DataEventType.childAdded, with: {
-            (tarea) in
-            print(tarea)
-            let t = Tarea()
-            t.titulo = (tarea.value as! NSDictionary)["titulo"] as! String
-            t.fecha = (tarea.value as! NSDictionary)["fecha"] as! String
-            t.contenido = (tarea.value as! NSDictionary)["contenido"] as! String
-            t.id = tarea.key
-            print(t)
-            self.tareas.append(t)
-            self.tablaTareas.reloadData()
+        Database.database().reference().child("usuarios").child("1").child("tareas").observe(DataEventType.childAdded, with: { (snapshot) in
+            if let tareaDict = snapshot.value as? [String: Any] {
+                let t = Tarea()
+                t.titulo = tareaDict["titulo"] as? String ?? ""
+                t.audioURL = tareaDict["audio"] as? String ?? ""
+                t.fecha = tareaDict["fecha"] as? String ?? ""
+                t.contenido = tareaDict["contenido"] as? String ?? ""
+                t.id = snapshot.key
+                self.tareas.append(t)
+                self.tablaTareas.reloadData()
+            }
         })
+
     }
     
     func deleteItem(id: String){
