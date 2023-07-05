@@ -55,7 +55,7 @@ class CreateTaskViewController: UIViewController {
     }
 
     @IBAction func agregarTarea(_ sender: Any) {
-        do {
+        if txtTitulo.text != nil{
             let selectedDate = self.txtFecha.date
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "dd-mm-yyyy HH:mm:ss"
@@ -65,13 +65,9 @@ class CreateTaskViewController: UIViewController {
                 "contenido": self.txtContenido ?? "",
                 "fecha": dateString
             ]
-            
             let tareaRef = self.database.child("tareas").childByAutoId()
             tareaRef.setValue(tareaData)
-            
             self.navigationController?.popViewController(animated: true)
-        } catch {
-            print(error.localizedDescription)
         }
     }
     
