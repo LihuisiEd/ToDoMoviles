@@ -76,11 +76,12 @@ class CreateTaskViewController: UIViewController {
     @IBAction func actualizarTarea(_ sender: Any) {
         if let tareaId = tareaPut?.id {
                         let updatedData: [String: Any] = [
-                            "titulo": "Nuevo título",
-                            "contenido": "Nuevo contenido",
-                            "fecha": "Nueva fecha"
+                            "titulo": tareaPut!.titulo,
+                            "contenido": tareaPut!.contenido,
+                            "fecha": tareaPut!.fecha
                         ]
-                        
+                        print(tareaId)
+            print(tareaPut?.titulo)
                         let tareaRef = self.database.child("tareas").child(tareaId)
                         tareaRef.setValue(updatedData) { (error, _) in
                             if let error = error {
