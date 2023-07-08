@@ -13,9 +13,23 @@ import FirebaseAuth
 class ToDoTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tareas:[Tarea] = []
-    
+
     @IBOutlet weak var tablaTareas: UITableView!
     
+    @IBAction func outSession(_ sender: Any) {
+        do {
+                try Auth.auth().signOut()
+            
+                UserDefaults.standard.removeObject(forKey: "email")
+                UserDefaults.standard.removeObject(forKey: "password")
+                UserDefaults.standard.set(false, forKey: "isLoggedIn")
+                
+                dismiss(animated: true,completion: nil)
+            } catch let signOutError as NSError {
+                print("Error al cerrar sesión: \(signOutError.localizedDescription)")
+            }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         tablaTareas.delegate = self
@@ -23,27 +37,35 @@ class ToDoTableViewController: UIViewController, UITableViewDelegate, UITableVie
         
         self.navigationItem.leftBarButtonItem = self.editButtonItem
         setEditing(true, animated: true)
-        
-        Database.database().reference().child("usuarios").child((Auth.auth().currentUser?.uid)!).child("tareas").observe(DataEventType.childAdded, with: { (snapshot) in
-                            if let tareaDict = snapshot.value as? [String: Any] {
-                                let tarea = Tarea()
-                                tarea.titulo = tareaDict["titulo"] as? String ?? ""
-                                tarea.fecha = tareaDict["fecha"] as? String ?? ""
-                                tarea.contenido = tareaDict["contenido"] as? String ?? ""
-                                tarea.id = snapshot.key
-                                self.tareas.append(tarea)
-                                self.tablaTareas.reloadData()
-                            }
-                        })
+        //cargarDatos()
     }
     
+    func cargarDatos(){
+        Database.database().reference().child("usuarios").child((Auth.auth().currentUser?.uid)!).child("tareas").observe(DataEventType.childAdded, with: { (snapshot) in
+                        if let tareaDict = snapshot.value as? [String: Any] {
+                            let tarea = Tarea()
+                            tarea.titulo = tareaDict["titulo"] as? String ?? ""
+                            tarea.fecha = tareaDict["fecha"] as? String ?? ""
+                            tarea.contenido = tareaDict["contenido"] as? String ?? ""
+                            tarea.tipo = tareaDict["tipo"] as? String ?? ""
+                            tarea.archivoURL = tareaDict["imagenUrl"] as? String ?? ""
+                            tarea.id = snapshot.key
+                            self.tareas.append(tarea)
+                            self.tablaTareas.reloadData()
+                        }
+                        })
+
+    }
+
+    
     func deleteItem(id: String){
-        let dataRef  = Database.database().reference().child("usuarios").child("1").child("tareas").child(id)
-        dataRef.removeValue { error, _ in
+        let dataRef  = Database.database().reference().child("usuarios").child((Auth.auth().currentUser?.uid)!).child("tareas")
+        let tareaRef = dataRef.child(id)
+        tareaRef.removeValue { (error, _) in
             if let error = error {
-                print("Error al eliminar el dato: \(error.localizedDescription)")
+                print("Error al eliminar la tarea: \(error.localizedDescription)")
             } else {
-                print("Dato eliminado correctamente.")
+                print("Tarea eliminada satisfactoriamente")
             }
         }
     }
@@ -75,15 +97,30 @@ class ToDoTableViewController: UIViewController, UITableViewDelegate, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-            let tareaPut = tareas[indexPath.row]
+        let tareaPut = tareas[indexPath.row]
+        print(tareaPut.tipo)
+        print(tareaPut.archivoURL)
+        if tareaPut.tipo == "imagen"{
+            performSegue(withIdentifier: "imagenSegue", sender: tareaPut)
+        } else if tareaPut.tipo == "nota" {
             performSegue(withIdentifier: "putSegue", sender: tareaPut)
+        } else {
+            performSegue(withIdentifier: "audioSegue", sender: tareaPut)
+        }
     }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-            if segue.identifier == "putSegue"{
-                let siguienteVC = segue.destination as! CreateTaskViewController
-                siguienteVC.tareaPut = sender as? Tarea
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "putSegue" {
+            if let siguienteVC = segue.destination as? CreateTaskViewController,
+               let tareaPut = sender as? Tarea {
+                siguienteVC.tareaPut = tareaPut
             }
+        } else if segue.identifier == "imagenSegue"{
+            if let siguienteVC = segue.destination as? TareasViewController,
+               let tareaPut = sender as? Tarea {
+                siguienteVC.tareaPut = tareaPut
+            }
+        }
     }
     
     override func setEditing(_ editing: Bool, animated: Bool) {
@@ -96,5 +133,16 @@ class ToDoTableViewController: UIViewController, UITableViewDelegate, UITableVie
             self.tablaTareas.isEditing = true
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tareas.removeAll()
+        cargarDatos()
+        tablaTareas.reloadData()
+        
+    }
+    
 
 }
+
+

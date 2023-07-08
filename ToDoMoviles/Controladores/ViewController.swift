@@ -32,6 +32,9 @@ class ViewController: UIViewController {
                 self.present(alerta, animated: true, completion: nil)
             }else{
                 print("Inicio de sesión exitoso")
+                UserDefaults.standard.set(self.txtEmail.text, forKey: "email")
+                UserDefaults.standard.set(self.txtPassword.text, forKey: "password")
+                UserDefaults.standard.set(true, forKey: "isLoggedIn")
                 self.performSegue(withIdentifier: "iniciarsesionSegue", sender: nil)
             }
         }
@@ -43,6 +46,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let email = UserDefaults.standard.string(forKey: "email"),
+               let password = UserDefaults.standard.string(forKey: "password") {
+                txtEmail.text = email
+                txtPassword.text = password
+            }
+        if UserDefaults.standard.bool(forKey: "isLoggedIn") {
+            autenticarUsuario()
+        }
         
     }
     
@@ -74,6 +85,25 @@ class ViewController: UIViewController {
 
         }
                     
+    }
+    
+    func autenticarUsuario() {
+        // Obtener las credenciales guardadas en UserDefaults
+        guard let email = UserDefaults.standard.string(forKey: "email"),
+              let password = UserDefaults.standard.string(forKey: "password") else {
+            // No se encontraron las credenciales en UserDefaults, mostrar pantalla de inicio de sesión
+            return
+        }
+        
+        // Autenticar al usuario con las credenciales guardadas
+        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+            if error != nil {
+                // Error al autenticar al usuario, mostrar pantalla de inicio de sesión
+            } else {
+                // Autenticación exitosa, realizar la transición a la pantalla principal de la app
+                self.performSegue(withIdentifier: "iniciarsesionSegue", sender: nil)
+            }
+        }
     }
     
 

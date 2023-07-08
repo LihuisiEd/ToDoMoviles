@@ -8,10 +8,11 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseStorage
+
+let loggedInKey = "isLoggedIn"
 
 class RegisterViewController: UIViewController {
-    
-    
     @IBOutlet weak var txtUsername: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
@@ -46,5 +47,3 @@ class RegisterViewController: UIViewController {
     
 }
     
-
-
